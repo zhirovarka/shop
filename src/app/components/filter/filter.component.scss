@@ -1,0 +1,11 @@
+input, .button, .dropdown {
+  display: flex;
+  margin-top: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.number {
+  width: 112px;
+  display: inline-flex;
+}

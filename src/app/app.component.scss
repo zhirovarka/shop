@@ -1,0 +1,47 @@
+.header {
+  border-bottom: 1px solid #e2c6c6;
+
+  > h1 {
+    padding-left: 75px;
+    margin: 0;
+
+    > a {
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      font-size: 24pt;
+      font-weight: bold;
+      cursor: pointer;
+      color: #000;
+      text-decoration: none;
+
+      img.logo {
+        width: 80px;
+      }
+    }
+  }
+}
+
+.footer {
+  background: #383838;
+  padding: 50px;
+
+  >.title {
+    text-align: center;
+    color: #ffffff;
+  }
+
+  >.description {
+    text-align: center;
+    font-size: 10pt;
+    color: #bd4c4c;
+  }
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  min-height: calc(100% - 206px);
+
+  .goods-component {
+    width: 100%;
+  }
+}

@@ -1,0 +1,14 @@
+<div ngClass="adds">
+  <app-carousel-animated></app-carousel-animated>
+</div>
+<div ngClass="goods">
+    <!-- <div class="aside">
+    <app-filter></app-filter>
+  </div> -->
+  <div class="items">
+    <div ngClass="title">
+      <h2>Товары</h2>
+    </div>
+    <app-item *ngFor="let item of data | async" [item]="item"></app-item>
+  </div>
+</div>

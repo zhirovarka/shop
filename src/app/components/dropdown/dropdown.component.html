@@ -1,0 +1,12 @@
+<div class="btn-group" dropdown>
+  <button id="button-animated" dropdownToggle type="button" class="btn dropdown-toggle" aria-controls="dropdown-animated">
+    {{dropdownTitle}}<span class="caret"></span>
+  </button>
+  <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-animated">
+    <li role="menuitem"><span class="dropdown-item" (click)="selectValue()">Не задан</span></li>
+    <li role="menuitem" *ngFor="let item of items">
+      <span *ngIf="isString(item)" class="dropdown-item" (click)="selectValue(item)">{{item}}</span>
+      <span *ngIf="!isString(item)" class="dropdown-item" (click)="selectValue(item)">{{item.item}}</span>
+    </li>
+  </ul>
+</div>

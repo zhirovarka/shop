@@ -1,0 +1,47 @@
+
+
+.description {
+  margin-top: 5px;
+  height: 80px;
+  overflow: hidden;
+  font-size: 10pt;
+  line-height: 20px;
+}
+
+a {
+  font-size: 12pt;
+  font-weight: 700;
+  cursor: pointer;
+  color: #000;
+  text-decoration: none;
+
+  &:hover {
+    color: #b41f1f;
+  }
+
+  .image {
+    width: 100%;
+    height: 150px;
+    border-radius: 3px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-size: 12px;
+    font-weight: 100;
+  }
+
+  .title {
+    margin-top: 20px;
+    line-height: 30px;
+    height: 30px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-weight: 100;
+  }
+}
+
+h6 {
+  font-weight: 400;
+  color: #ac7e00;
+}

@@ -1,0 +1,44 @@
+.adds {
+  background: #fffbf6;
+  height: 300px;
+}
+
+.goods {
+  display: flex;
+  max-width: 1220px;
+  margin: 10px auto;
+  padding: 0 5px;
+
+  .aside {
+    width: 240px;
+    margin-right: 10px;
+  }
+
+  .items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex: 1;
+    width: 100%;
+
+    .title {
+      width: 100%;
+      text-transform: uppercase;
+    }
+
+    app-item {
+      display: inline-flex;
+      margin-top: 10px;
+      margin-right: 10px;
+      width: 230px;
+      height: 350px;
+      border: 1px solid #d2d2d2;
+      padding: 10px 10px;
+      text-align: center;
+
+      &:hover {
+        border-color: #b41f1f;
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+<div ngClass="md-form">
+  <input #search [ngModel]="currentSearch" type="text" class="form-control" aria-describedby="MaterialButton" placeholder="Поиск" (change)="changeFilter('searchText', $event.target.value)">
+  <input #priceFrom [ngModel]="currentPriceFrom" type="number" class="form-control number" aria-describedby="MaterialButton" placeholder="Цена от" (change)="changeFilter('priceFrom', $event.target.value)"> -
+  <input #priceTo [ngModel]="currentPriceTo" type="number" class="form-control number" aria-describedby="MaterialButton" placeholder="Цена до" (change)="changeFilter('priceTo', $event.target.value)">
+  <app-dropdown-animation ngClass="dropdown form-control" [name]="'Цвет'" (changeValue)="changeFilter('color', $event)" [value]="setColor" [items]="uniqueColors"></app-dropdown-animation>
+  <app-dropdown-animation ngClass="dropdown form-control" [name]="'Размер'" (changeValue)="changeFilter('size', $event)" [value]="setSize" [items]="uniqueSizes"></app-dropdown-animation>
+  <app-dropdown-animation ngClass="dropdown form-control" [name]="'Сортировка'" (changeValue)="changeFilter('sort', $event)" [value]="setSort" [items]="[
+    {item: 'По цене: сначала дешевые', value: 'priceLow'},
+    {item: 'По цене: сначала дорогие', value: 'priceHigh'},
+    {item: 'По популярности', value: 'rateHigh'}
+  ]"></app-dropdown-animation>
+  <button class="button form-control" aria-describedby="MaterialButton" (click)="clearFilter()">Очистить фильтр</button>
+</div>

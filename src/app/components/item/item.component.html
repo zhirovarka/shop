@@ -1,0 +1,19 @@
+<div>
+  <a [routerLink]="['product', item._id.$oid]" routerLinkActive="active">
+    <ng-container *ngIf="mainImg then good else error"></ng-container>
+    <div class="title">{{item.title}}</div>
+  </a>
+  <h5>{{item.price}} руб.</h5>
+  <h6>Оценка: {{item.rating}}</h6>
+  <div class="description">{{item.description.substring(0, 60).trim()}}...</div>
+  <!-- <div class="addToCart">Добавить в корзину</div> -->
+</div>
+
+<ng-template #good>
+  <div class="image" [ngStyle]="{'background-image': 'url(' + mainImg + ')'}"></div>
+</ng-template>
+
+<ng-template #error>
+  <div class="image" [ngStyle]="{'background-image': 'url(' + noImage + ')'}"></div>
+</ng-template>
+

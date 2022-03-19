@@ -1,0 +1,9 @@
+.btn-group {
+  ul > li {
+    cursor: default;
+  }
+
+  .btn:focus {
+    box-shadow: none !important;
+  }
+}
