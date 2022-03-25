@@ -1,12 +1,16 @@
 .header {
   border-bottom: 1px solid #e2c6c6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 75px;
 
   > h1 {
-    padding-left: 75px;
     margin: 0;
 
     > a {
-      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
       font-size: 24pt;
       font-weight: bold;
       cursor: pointer;
@@ -24,12 +28,12 @@
   background: #383838;
   padding: 50px;
 
-  >.title {
+  > .title {
     text-align: center;
     color: #ffffff;
   }
 
-  >.description {
+  > .description {
     text-align: center;
     font-size: 10pt;
     color: #bd4c4c;

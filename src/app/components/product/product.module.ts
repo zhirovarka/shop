@@ -3,15 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ProductComponent } from './product.component';
 import { NgModule } from '@angular/core';
 
-@NgModule({
-  declarations: [
-    ProductComponent
-  ],
-  imports: [
-    BrowserModule,
-    PicturesModule
-  ],
-  providers: []
-})
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 
-export class ProductModule { }
+@NgModule({
+  declarations: [ProductComponent],
+  imports: [BrowserModule, PicturesModule, FormsModule, MatButtonModule],
+  providers: [],
+})
+export class ProductModule {}

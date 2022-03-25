@@ -1,24 +1,36 @@
 <div ngClass="product">
   <div class="info">
-    <ng-container *ngTemplateOutlet="(item | async) ? complete : error; context: { images: (item | async)?.images }"></ng-container>
+    <ng-container
+      *ngTemplateOutlet="
+        (item | async) ? complete : error;
+        context: { images: (item | async)?.images }
+      "
+    ></ng-container>
     <div ngClass="basic">
-      <div class="title">{{(item | async)?.title}}</div>
-      <div class="price">{{(item | async)?.price}} руб.</div>
-      <div class="rating"><b>Рейтинг: </b>{{(item | async)?.rating}}</div>
+      <div class="title">{{ (item | async)?.title }}</div>
+      <div class="price">{{ (item | async)?.price }} руб.</div>
+      <div class="rating"><b>Рейтинг: </b>{{ (item | async)?.rating }}</div>
+      <div class="buy">
+        <button mat-raised-button color="primary">Добавить в корзину</button>
+      </div>
     </div>
   </div>
   <div ngClass="details">
-    <div class="size"><b>Размеры:</b><br>
-      <div *ngFor="let size of (item | async)?.size">{{size}}</div>
+    <div class="size">
+      <b>Размеры:</b><br />
+      <div *ngFor="let size of (item | async)?.size">{{ size }}</div>
     </div>
-    <div class="color"><b>Цвета:</b><br>
-      <div *ngFor="let color of (item | async)?.color">{{color}}</div>
+    <div class="color">
+      <b>Цвета:</b><br />
+      <div *ngFor="let color of (item | async)?.color">{{ color }}</div>
     </div>
-    <div class="description"><b>Описание:</b><br>
-      {{(item | async)?.description}}
+    <div class="description">
+      <b>Описание:</b><br />
+      {{ (item | async)?.description }}
     </div>
-    <div class="tags"><b>Теги:</b><br>
-      <div *ngFor="let tag of (item | async)?.tags">{{tag}}</div>
+    <div class="tags">
+      <b>Теги:</b><br />
+      <div *ngFor="let tag of (item | async)?.tags">{{ tag }}</div>
     </div>
   </div>
 </div>
@@ -27,6 +39,4 @@
   <app-pictures [imgUrls]="images"></app-pictures>
 </ng-template>
 
-<ng-template #error>
-  Error!
-</ng-template>
+<ng-template #error> Error! </ng-template>

@@ -4,25 +4,33 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { IAppState } from './store/state/app.state';
 import { DataService } from './services/data.service';
-import { GetFilterColors, GetFilterSizes } from './store/actions/filter.actions';
+import {
+  GetFilterColors,
+  GetFilterSizes,
+} from './store/actions/filter.actions';
 import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
-
 export class AppComponent implements OnInit {
   public title = 'Магазин';
   public footer = 'Подвал магазина';
   public logo: string;
 
-  constructor(private store: Store<IAppState>, private dataService: DataService, public filter: FilterService) { }
+  public isLogin$: boolean = false;
+
+  constructor(
+    private store: Store<IAppState>,
+    private dataService: DataService,
+    public filter: FilterService
+  ) {}
 
   public ngOnInit(): void {
     this.logo = environment.logo;
-    this.dataService.getData().subscribe(data => {
+    this.dataService.getData().subscribe((data) => {
       this.store.dispatch(new GetItemsSuccess(data));
 
       /*const uniqueSizes =  data.reduce((accum, item) => accum.concat(item.size), [])

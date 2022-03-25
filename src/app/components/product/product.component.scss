@@ -29,6 +29,15 @@
         &.price {
           font-size: 22pt;
           color: #b41f1f;
+          margin: 10px 0;
+        }
+
+        &.buy {
+          font-size: 22pt;
+          color: #b41f1f;
+          margin: 10px 0;
+          display: flex;
+          align-items: center;
         }
       }
     }
@@ -39,7 +48,10 @@
     margin: 0 auto;
     padding: 0 5px;
 
-    .color, .size, .description, .tags {
+    .color,
+    .size,
+    .description,
+    .tags {
       display: inline-block;
       width: 100%;
       margin-bottom: 15px;
