@@ -11,18 +11,29 @@
       <div class="price">{{ (item | async)?.price }} руб.</div>
       <div class="rating"><b>Рейтинг: </b>{{ (item | async)?.rating }}</div>
       <div class="buy">
-        <button mat-raised-button color="primary">Добавить в корзину</button>
+        <div class="buy-wrapper">
+          <button mat-mini-fab (click)="dicrimentCounter()">-</button>
+          <span class="counter">{{ counter }}</span>
+          <button mat-mini-fab (click)="incrimentCounter()">+</button>
+        </div>
+        <button mat-raised-button color="primary" (click)="addItemInBasket()">
+          Добавить в корзину
+        </button>
       </div>
     </div>
   </div>
   <div ngClass="details">
     <div class="size">
       <b>Размеры:</b><br />
-      <div *ngFor="let size of (item | async)?.size">{{ size }}</div>
+      <div *ngFor="let size of (item | async)?.size">
+        {{ size }}
+      </div>
     </div>
     <div class="color">
       <b>Цвета:</b><br />
-      <div *ngFor="let color of (item | async)?.color">{{ color }}</div>
+      <div *ngFor="let color of (item | async)?.color">
+        {{ color }}
+      </div>
     </div>
     <div class="description">
       <b>Описание:</b><br />

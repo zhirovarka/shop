@@ -11,7 +11,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class PicturesComponent implements OnInit {
   @Input() imgUrls: string[] = [];
   public imgCurrent: string;
-  public noImage = environment.noImage;
+  // public noImage = environment.noImage;
+  public noImage = environment['noImage'];
   public checkedUrls: string[] = [];
 
   constructor(public dataService: DataService) { }

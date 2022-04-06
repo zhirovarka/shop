@@ -4,11 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { IAppState } from './store/state/app.state';
 import { DataService } from './services/data.service';
-import {
-  GetFilterColors,
-  GetFilterSizes,
-} from './store/actions/filter.actions';
 import { environment } from '../environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -25,11 +22,13 @@ export class AppComponent implements OnInit {
   constructor(
     private store: Store<IAppState>,
     private dataService: DataService,
-    public filter: FilterService
+    public filter: FilterService,
+    private router: Router
   ) {}
 
   public ngOnInit(): void {
-    this.logo = environment.logo;
+    // this.logo = environment.logo;
+    this.logo = environment['logo'];
     this.dataService.getData().subscribe((data) => {
       this.store.dispatch(new GetItemsSuccess(data));
 
@@ -39,5 +38,10 @@ export class AppComponent implements OnInit {
       this.store.dispatch(new GetFilterColors(uniqueColors));
       this.store.dispatch(new GetFilterSizes(uniqueSizes));*/
     });
+  }
+
+  public goToBasketPage(): void {
+    this.router.navigate(['basket']);
+    console.log('test');
   }
 }

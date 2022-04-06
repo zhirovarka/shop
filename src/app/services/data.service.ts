@@ -9,7 +9,8 @@ export class DataService {
   constructor(private httpClient: HttpClient) { }
 
   public getData(): Observable<Item[]> {
-    return this.httpClient.get<Item[]>(environment.apiUrl);
+    // return this.httpClient.get<Item[]>(environment.apiUrl);
+    return this.httpClient.get<Item[]>(environment['apiUrl']);
   }
 
   public getImage(url: string): Observable<any> {

@@ -15,7 +15,8 @@ export class ItemComponent implements OnInit, OnDestroy {
   @Input()
   public item: Item;
   public mainImg: string;
-  public noImage = environment.noImage;
+  public noImage = environment['noImage'];
+  // public noImage = environment.noImage;
 
   private subscriber: Subscription;
   private destroy: Subject<any> = new Subject();

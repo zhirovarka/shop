@@ -2,24 +2,30 @@ import { GoodsComponent } from './components/goods/goods.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ProductComponent } from './components/product/product.component';
+import { BasketComponent } from './components/basket/basket.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: GoodsComponent
+    component: GoodsComponent,
+  },
+  {
+    path: 'basket',
+    loadChildren: () =>
+      import('./components/basket/basket.module').then((m) => m.BasketModule),
   },
   {
     path: 'product/:id',
-    component: ProductComponent
+    component: ProductComponent,
   },
   {
     path: '**',
-    redirectTo: ''
-  }
+    redirectTo: '',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
