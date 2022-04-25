@@ -43,7 +43,7 @@
 .content {
   display: flex;
   justify-content: center;
-  min-height: calc(100% - 206px);
+  min-height: calc(100% - 202px);
 
   .goods-component {
     width: 100%;
@@ -53,4 +53,24 @@
 
 .basket {
   margin: 0 10px;
+}
+
+.buttons_group {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  span {
+    margin: 0 10px 0 0;
+  }
+}
+
+.signOut-template {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
 }

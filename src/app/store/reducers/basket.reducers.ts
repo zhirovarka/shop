@@ -7,10 +7,10 @@ export const basketReducers = (
 ): IBasketState => {
   switch (action.type) {
     case EBasketActions.AddItemInBasketSuccess: {
-      console.log('testBasket:', action.payload, action.count);
+      console.log('testBasket:', action.payload);
       return {
         ...state,
-        // colors: action.payload,
+        basketItems: [...state.basketItems, action.payload],
       };
     }
     default:

@@ -16,9 +16,14 @@
           <span class="counter">{{ counter }}</span>
           <button mat-mini-fab (click)="incrimentCounter()">+</button>
         </div>
-        <button mat-raised-button color="primary" (click)="addItemInBasket()">
-          Добавить в корзину
-        </button>
+        <div class="buy-btn-wrapper">
+          <button mat-raised-button color="primary" (click)="addItemInBasket()">
+            Добавить в корзину
+          </button>
+          <button mat-raised-button color="accent" (click)="goToBasketPage()">
+            Перейти в корзину
+          </button>
+        </div>
       </div>
     </div>
   </div>

@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { IAppState } from 'src/app/store/state/app.state';
 import { Item } from 'src/app/interfaces/item.interface';
@@ -18,7 +18,11 @@ import { AddItemInBasketSuccess } from 'src/app/store/actions/basket.actions';
   },
 })
 export class ProductComponent implements OnInit {
-  constructor(private route: ActivatedRoute, private store: Store<IAppState>) {}
+  constructor(
+    private route: ActivatedRoute,
+    private store: Store<IAppState>,
+    private router: Router
+  ) {}
 
   public id: string;
   public item: Observable<Item>;
@@ -44,10 +48,16 @@ export class ProductComponent implements OnInit {
   }
 
   public addItemInBasket(): void {
-    this.item
-      .pipe(take(1))
-      .subscribe((val) => console.log('fucking val:', val));
-    console.log(this.counter);
-    // this.store.dispatch(new AddItemInBasketSuccess(this.item, this.counter));
+    this.item.pipe(take(1)).subscribe((val) => {
+      console.log('fucking val:', val);
+      console.log(this.counter);
+      this.store.dispatch(
+        new AddItemInBasketSuccess({ item: val, count: this.counter })
+      );
+    });
+  }
+
+  public goToBasketPage(): void {
+    this.router.navigate(['basket']);
   }
 }

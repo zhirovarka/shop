@@ -8,7 +8,7 @@ export enum EBasketActions {
 
 export class AddItemInBasketSuccess implements Action {
   public readonly type = EBasketActions.AddItemInBasketSuccess;
-  constructor(public payload: Item, public count: number) {}
+  constructor(public payload: { item: Item; count: number }) {}
 }
 
 export class AddItemInBasketFailed implements Action {

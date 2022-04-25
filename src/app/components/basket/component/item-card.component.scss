@@ -1,0 +1,11 @@
+.card {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.text {
+  max-width: 650px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

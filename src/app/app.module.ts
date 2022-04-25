@@ -1,5 +1,3 @@
-import { BasketComponent } from './components/basket/basket.component';
-import { FilterComponent } from './components/filter/filter.component';
 import { appReducers } from './store/reducers/app.reducers';
 import { ProductModule } from './components/product/product.module';
 import { GoodsModule } from './components/goods/goods.module';
@@ -19,13 +17,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatBadgeModule } from '@angular/material/badge';
 
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireModule } from '@angular/fire';
+import { BasketEffects } from './store/effects/basket.effects';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [AppComponent],
@@ -38,17 +39,22 @@ import { environment } from '../environments/environment';
     GoodsModule,
     ProductModule,
     StoreModule.forRoot(appReducers),
+    EffectsModule.forRoot([BasketEffects]),
     StoreDevtoolsModule.instrument(),
     NgbModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
-
+    MatBadgeModule,
+    MatProgressSpinnerModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    AngularFirestoreModule,
-    AngularFireStorageModule,
-    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    MatCardModule,
+    MatDividerModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

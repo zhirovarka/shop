@@ -80,7 +80,15 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-direction: row;
     margin-bottom: 30px;
+}
+
+.buy-btn-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
 }
 
 :host::ng-deep {

@@ -6,11 +6,13 @@ import {
   initFilterSizesState,
 } from './filter.state';
 import { IItemState, initItemState } from './item.state';
+import { initUserState, IUserState } from './user.state';
 export interface IAppState {
   items: IItemState;
   colors: IFilterColorsState;
   sizes: IFilterSizesState;
   basketItems: IBasketState;
+  user: IUserState;
 }
 
 export const initAppState: IAppState = {
@@ -18,6 +20,7 @@ export const initAppState: IAppState = {
   colors: initFilterColorState,
   sizes: initFilterSizesState,
   basketItems: initBasketItems,
+  user: initUserState,
 };
 
 export function getInitState(): IAppState {

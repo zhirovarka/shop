@@ -5,12 +5,12 @@ export const environment = {
   logo: '/assets/shop-logo.png',
   noImage: '/assets/no-image-icon-6.png',
   firebaseConfig: {
-    apiKey: "AIzaSyA16GV05hn8HdmRTdwRu3Y_cYA0I2HtBg8",
-    authDomain: "clothing-store-spa.firebaseapp.com",
-    databaseURL: "https://clothing-store-spa-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "clothing-store-spa",
-    storageBucket: "clothing-store-spa.appspot.com",
-    messagingSenderId: "700676696120",
-    appId: "1:700676696120:web:564cedf27b54f3c38f5ecd"
-  }
+    apiKey: 'AIzaSyA16GV05hn8HdmRTdwRu3Y_cYA0I2HtBg8',
+    authDomain: 'clothing-store-spa.firebaseapp.com',
+    databaseURL: 'https://clothing-store-spa.europe-west1.firebasedatabase.app',
+    projectId: 'clothing-store-spa',
+    storageBucket: 'clothing-store-spa.appspot.com',
+    messagingSenderId: '700676696120',
+    appId: '1:700676696120:web:564cedf27b54f3c38f5ecd',
+  },
 };

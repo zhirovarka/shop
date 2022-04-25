@@ -1,11 +1,13 @@
 .items {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  flex: 1;
+  flex-direction: column;
   width: 100%;
 
   .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     text-transform: uppercase;
   }
@@ -24,4 +26,8 @@
       border-color: #b41f1f;
     }
   }
+}
+
+.cards-wrapper {
+  width: 850px;
 }
