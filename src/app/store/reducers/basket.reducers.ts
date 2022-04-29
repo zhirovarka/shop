@@ -7,7 +7,6 @@ export const basketReducers = (
 ): IBasketState => {
   switch (action.type) {
     case EBasketActions.AddItemInBasketSuccess: {
-      console.log('testBasket:', action.payload);
       return {
         ...state,
         basketItems: [...state.basketItems, action.payload],
@@ -19,6 +18,12 @@ export const basketReducers = (
         basketItems: [
           ...state.basketItems.filter((item) => item.id !== action.payload.id),
         ],
+      };
+    }
+    case EBasketActions.ClearItemsInBasket: {
+      return {
+        ...state,
+        basketItems: [],
       };
     }
     default:
