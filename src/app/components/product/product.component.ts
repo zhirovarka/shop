@@ -66,7 +66,7 @@ export class ProductComponent implements OnInit {
             id: randomizeId,
           })
         );
-        this.notification.open('Добавлено в карзину', null, { duration: 4000 });
+        this.notification.open('Добавлено в корзину', null, { duration: 4000 });
       } else {
         this.notification.open('Выберите цвет и/или размер товара', null, {
           duration: 4000,
