@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ProductComponent } from './components/product/product.component';
 import { BasketComponent } from './components/basket/basket.component';
+import { PaymentGuard } from './services/guard/payment-guard.service';
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
       import('./components/payment/payment.module').then(
         (m) => m.PaymentModule
       ),
+    canActivate: [PaymentGuard],
   },
   {
     path: 'product/:id',
