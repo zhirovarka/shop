@@ -79,5 +79,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
   public ngOnDestroy(): void {
     this.destroyer$.next();
+    this.destroyer$.complete();
   }
 }

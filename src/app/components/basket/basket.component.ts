@@ -1,22 +1,38 @@
+import { AuthService } from './../../services/auth/auth.service';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { selectBasketItemList } from 'src/app/store/selectors/basket.selector';
 import { BasketItems } from 'src/app/store/state/basket.state';
 import { DeleteItemInBasketSuccess } from 'src/app/store/actions/basket.actions';
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-basket',
   templateUrl: './basket.component.html',
   styleUrls: ['./basket.component.scss'],
 })
-export class BasketComponent implements OnInit {
+export class BasketComponent implements OnInit, OnDestroy {
   public basket$ = this.store.select(selectBasketItemList);
 
-  constructor(private store: Store, private router: Router) {}
+  public isLogin$ = this.auth.user$;
+
+  private destroyer$: Subject<void> = new Subject();
+
+  constructor(
+    private store: Store,
+    private router: Router,
+    private auth: AuthService
+  ) {}
 
   public ngOnInit(): void {
-    console.log('init basket');
+    this.isLogin$.subscribe((val) => console.log('login!', val));
+  }
+
+  public ngOnDestroy(): void {
+    this.destroyer$.next();
+    this.destroyer$.complete();
   }
 
   public deleteItem(event: number) {

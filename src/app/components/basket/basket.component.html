@@ -9,6 +9,16 @@
   </div>
 </div>
 
-<div class="footer" *ngIf="(basket$ | async).length as basket">
-  <button mat-button (click)="buyItems()">Купить</button>
-</div>
+    <ng-container *ngIf="!!(isLogin$ | async) as isLogin; else warning">
+      <div class="footer" *ngIf="(basket$ | async).length as basket">
+        <button mat-button (click)="buyItems()">Купить</button>
+      </div>
+    </ng-container>
+
+
+<ng-template #warning>
+  <div class="footer">
+    <span>Для покупки товаров, пожалуйста, аторизуйтесь</span>
+  </div>
+</ng-template>
+
