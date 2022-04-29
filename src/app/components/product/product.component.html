@@ -30,13 +30,13 @@
   <div ngClass="details">
     <div class="size">
       <b>Размеры:</b><br />
-      <div *ngFor="let size of (item | async)?.size">
+      <div *ngFor="let size of (item | async)?.size" (click)="choiceSize(size)" [ngClass]="size === checkedSize ? 'checked' : ''">
         {{ size }}
       </div>
     </div>
     <div class="color">
       <b>Цвета:</b><br />
-      <div *ngFor="let color of (item | async)?.color">
+      <div *ngFor="let color of (item | async)?.color" (click)="choiceColor(color)" [ngClass]="color === checkedColor ? 'checked' : ''">
         {{ color }}
       </div>
     </div>

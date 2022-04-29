@@ -1,16 +1,22 @@
 <mat-card class="card">
   <mat-card-title-group>
-    <mat-card-title class="text">Siaergljeahbgrkhaerghregfaekrgaiegraehrfbaebfwuaefbkauhbfkwahfbb</mat-card-title>
-    <mat-card-subtitle class="text">Small</mat-card-subtitle>
-    <mat-card-subtitle class="text">Small</mat-card-subtitle>
-    <mat-card-subtitle class="text">Small</mat-card-subtitle>
-    <img mat-card-md-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
+    <mat-card-title class="text title">{{card.item.title}}</mat-card-title>
+    <mat-card-subtitle class="text">Размер: {{card.item.size[0]}}</mat-card-subtitle>
+    <mat-card-subtitle class="text">Цвет: {{card.item.color[0]}}</mat-card-subtitle>
+    <mat-card-subtitle class="text">Количество: {{card.count}}</mat-card-subtitle>
+    <mat-card-subtitle class="text">Цена: {{card.item.price}}</mat-card-subtitle>
+    <!-- <img mat-card-md-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" > -->
+    <app-pictures [imgUrls]="card.item.images"></app-pictures>
   </mat-card-title-group>
-  <!-- <mat-card-content>
-    TESETSETSETWETSTET
-  </mat-card-content> -->
   <mat-divider inset></mat-divider>
   <mat-card-actions align="end">
-    <button mat-button>Удалить</button>
+    <button mat-button (click)="deleteCard()">Удалить</button>
   </mat-card-actions>
 </mat-card>
+
+
+<ng-template #complete let-images="images">
+  <app-pictures [imgUrls]="images"></app-pictures>
+</ng-template>
+
+<ng-template #error> Error! </ng-template>

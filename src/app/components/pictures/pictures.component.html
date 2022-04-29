@@ -9,7 +9,7 @@
 </div>
 
 <ng-template #good let-url="url">
-  <div class="buttonImg" (click)="selectImg(url)" [ngStyle]="{'background-image': 'url(' + url + ')'}"></div>
+  <div class="buttonImg" (click)="selectImg($event, url)" [ngStyle]="{'background-image': 'url(' + url + ')'}"></div>
 </ng-template>
 
 <ng-template #bad>

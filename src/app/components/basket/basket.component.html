@@ -3,6 +3,12 @@
     <h2>Карзина</h2>
   </div>
   <div class="cards-wrapper">
-    <app-item-card></app-item-card>
+    <ng-container *ngFor="let card of (basket$ | async)">
+      <app-item-card [card]="card" (cardToDelete)="deleteItem($event)" (click)="navigateToItem(card)"></app-item-card>
+    </ng-container>
   </div>
+</div>
+
+<div class="footer" *ngIf="(basket$ | async).length as basket">
+  <button mat-button (click)="buyItems()">Купить</button>
 </div>

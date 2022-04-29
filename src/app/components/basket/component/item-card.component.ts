@@ -1,4 +1,13 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Store } from '@ngrx/store';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  Input,
+  Output,
+  EventEmitter,
+} from '@angular/core';
+import { BasketItems } from 'src/app/store/state/basket.state';
 
 @Component({
   selector: 'app-item-card',
@@ -6,9 +15,19 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
   styleUrls: ['./item-card.component.scss'],
 })
 export class ItemCardComponent implements OnInit, OnDestroy {
-  constructor() {}
+  @Input() card: BasketItems;
 
-  ngOnInit(): void {}
+  @Output() cardToDelete: EventEmitter<number> = new EventEmitter();
+
+  constructor(private store: Store) {}
+
+  ngOnInit(): void {
+    console.log(this.card);
+  }
+
+  public deleteCard(): void {
+    this.cardToDelete.emit(this.card.id);
+  }
 
   ngOnDestroy(): void {}
 }

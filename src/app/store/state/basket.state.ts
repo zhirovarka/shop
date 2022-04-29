@@ -4,6 +4,7 @@ export interface IBasketState {
 }
 
 export interface BasketItems {
+  id: number;
   item: Item;
   count: number;
 }

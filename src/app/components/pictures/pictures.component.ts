@@ -35,7 +35,8 @@ export class PicturesComponent implements OnInit {
     this.imgCurrent = this.imgUrls[0];
   }
 
-  public selectImg(url: string): void {
+  public selectImg(event, url: string): void {
+    event.stopPropagation();
     this.imgCurrent = url;
   }
 }

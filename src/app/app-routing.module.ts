@@ -15,6 +15,13 @@ const routes: Routes = [
       import('./components/basket/basket.module').then((m) => m.BasketModule),
   },
   {
+    path: 'payment',
+    loadChildren: () =>
+      import('./components/payment/payment.module').then(
+        (m) => m.PaymentModule
+      ),
+  },
+  {
     path: 'product/:id',
     component: ProductComponent,
   },

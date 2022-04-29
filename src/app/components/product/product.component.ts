@@ -6,6 +6,7 @@ import { IAppState } from 'src/app/store/state/app.state';
 import { Item } from 'src/app/interfaces/item.interface';
 import { map, filter, take } from 'rxjs/operators';
 import { AddItemInBasketSuccess } from 'src/app/store/actions/basket.actions';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-product',
@@ -18,10 +19,14 @@ import { AddItemInBasketSuccess } from 'src/app/store/actions/basket.actions';
   },
 })
 export class ProductComponent implements OnInit {
+  public checkedSize: string;
+  public checkedColor: string;
+
   constructor(
     private route: ActivatedRoute,
     private store: Store<IAppState>,
-    private router: Router
+    private router: Router,
+    private notification: MatSnackBar
   ) {}
 
   public id: string;
@@ -51,10 +56,36 @@ export class ProductComponent implements OnInit {
     this.item.pipe(take(1)).subscribe((val) => {
       console.log('fucking val:', val);
       console.log(this.counter);
-      this.store.dispatch(
-        new AddItemInBasketSuccess({ item: val, count: this.counter })
-      );
+      const count = { ...val };
+      console.log(count);
+      count.size = [this.checkedSize];
+      count.color = [this.checkedColor];
+      if (!!this.checkedSize && !!this.checkedColor) {
+        const randomizeId = Date.now();
+        this.store.dispatch(
+          new AddItemInBasketSuccess({
+            item: count,
+            count: this.counter,
+            id: randomizeId,
+          })
+        );
+        this.notification.open('Добавлено в карзину', null, { duration: 4000 });
+      } else {
+        this.notification.open('Выберите цвет и/или размер товара', null, {
+          duration: 4000,
+        });
+      }
     });
+  }
+
+  public choiceSize(size: string) {
+    console.log(size);
+    this.checkedSize = size;
+  }
+
+  public choiceColor(color: string) {
+    console.log(color);
+    this.checkedColor = color;
   }
 
   public goToBasketPage(): void {
