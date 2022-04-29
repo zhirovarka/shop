@@ -54,10 +54,7 @@ export class ProductComponent implements OnInit {
 
   public addItemInBasket(): void {
     this.item.pipe(take(1)).subscribe((val) => {
-      console.log('fucking val:', val);
-      console.log(this.counter);
       const count = { ...val };
-      console.log(count);
       count.size = [this.checkedSize];
       count.color = [this.checkedColor];
       if (!!this.checkedSize && !!this.checkedColor) {
@@ -79,12 +76,10 @@ export class ProductComponent implements OnInit {
   }
 
   public choiceSize(size: string) {
-    console.log(size);
     this.checkedSize = size;
   }
 
   public choiceColor(color: string) {
-    console.log(color);
     this.checkedColor = color;
   }
 

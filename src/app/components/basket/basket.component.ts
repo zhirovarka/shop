@@ -26,9 +26,7 @@ export class BasketComponent implements OnInit, OnDestroy {
     private auth: AuthService
   ) {}
 
-  public ngOnInit(): void {
-    this.isLogin$.subscribe((val) => console.log('login!', val));
-  }
+  public ngOnInit(): void {}
 
   public ngOnDestroy(): void {
     this.destroyer$.next();
@@ -36,7 +34,6 @@ export class BasketComponent implements OnInit, OnDestroy {
   }
 
   public deleteItem(event: number) {
-    console.log('event', event);
     this.store.dispatch(new DeleteItemInBasketSuccess({ id: event }));
   }
 

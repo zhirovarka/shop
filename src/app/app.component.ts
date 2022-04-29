@@ -1,5 +1,4 @@
 import { takeUntil } from 'rxjs/operators';
-import { GetUserInfo, GetUserInfoSuccess } from './store/actions/user.actions';
 import { AuthService } from './services/auth/auth.service';
 import { FilterService } from './services/filter.service';
 import { GetItemsSuccess } from './store/actions/item.actions';
@@ -9,8 +8,7 @@ import { IAppState } from './store/state/app.state';
 import { DataService } from './services/data.service';
 import { environment } from '../environments/environment';
 import { Router } from '@angular/router';
-import { Observable, Subject } from 'rxjs';
-import { selectUser, selectUserLoading } from './store/selectors/user.selector';
+import { Subject } from 'rxjs';
 import { selectBasketItemListLength } from './store/selectors/basket.selector';
 
 @Component({
@@ -41,7 +39,6 @@ export class AppComponent implements OnInit, OnDestroy {
   ) {}
 
   public ngOnInit(): void {
-    // this.logo = environment.logo;
     this.auth.user$.pipe(takeUntil(this.destroyer$)).subscribe((val) => {
       this.isLoading = false;
       if (!!val) {
@@ -52,21 +49,11 @@ export class AppComponent implements OnInit, OnDestroy {
     this.logo = environment['logo'];
     this.dataService.getData().subscribe((data) => {
       this.store.dispatch(new GetItemsSuccess(data));
-
-      /*const uniqueSizes =  data.reduce((accum, item) => accum.concat(item.size), [])
-        .filter((item, index, self) => self.indexOf(item) === index);
-      const uniqueColors = Array.from(new Set(data.reduce((accum, item) => accum.concat(item.color), [])));
-      this.store.dispatch(new GetFilterColors(uniqueColors));
-      this.store.dispatch(new GetFilterSizes(uniqueSizes));*/
     });
-
-    // this.store.dispatch(new GetUserInfo());
-    // this.auth.user$.subscribe(val => console.log('user$: ', val));
   }
 
   public goToBasketPage(): void {
     this.router.navigate(['basket']);
-    console.log('test');
   }
 
   public authorizeUser(): void {

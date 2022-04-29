@@ -19,11 +19,9 @@ export class ItemCardComponent implements OnInit, OnDestroy {
 
   @Output() cardToDelete: EventEmitter<number> = new EventEmitter();
 
-  constructor(private store: Store) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.card);
-  }
+  ngOnInit(): void {}
 
   public deleteCard(): void {
     this.cardToDelete.emit(this.card.id);
